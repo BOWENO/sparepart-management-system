@@ -1,0 +1,14 @@
+backend/target/
+backend/data/
+backend/logs/
+backend/src/main/resources/static/
+frontend/node_modules/
+frontend/dist/
+.runtime/
+*.log
+*.jar
+*.zip
+*.mv.db
+.env
+.env.*
+!.env.example

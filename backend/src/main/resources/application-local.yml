@@ -1,0 +1,23 @@
+server:
+  port: 7878
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    # 固定到后端运行目录下的持久化文件；可用 SPAREPART_DB_PATH 显式覆盖。
+    url: jdbc:h2:file:${SPAREPART_DB_PATH:${user.dir}/data/sparepart};MODE=MySQL;DATABASE_TO_LOWER=TRUE;AUTO_SERVER=TRUE
+    username: sa
+    password:
+  sql:
+    init:
+      mode: always
+      encoding: UTF-8
+      schema-locations: classpath:schema-local.sql
+      # 只执行增量安全的建表/加字段脚本。禁止每次启动重新补示例业务数据。
+
+app:
+  bootstrap-users-enabled: true
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
